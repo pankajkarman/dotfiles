@@ -4,51 +4,35 @@
 
 # my own
 
-# Internet
-alias myip='wget -qO- http://icanhazip.com'   # Recover your external IP
-alias ports='netstat -tulanp'           # Shows open ports
-alias listen="lsof -P -i -n"            # Show which applications are connecting to the network.
-alias update='sudo apt update && sudo apt dist-upgrade'
-alias safe-update='sudo apt update && sudo apt upgrade'
-alias wget='wget -c'                    # Always allow an interrupted wget download to continue
-alias dlpage="wget -r -l 1 "            # save page and direct links
-
-alias proxyon='export all_proxy=http://172.16.2.30:8080'
-alias proxyoff='export all_proxy='
-
-alias serve='ssh -N -f -L localhost:8888:localhost:8889'
-
+alias gfort8="gfortran -fdefault-real-8 -fdefault-double-8"
 alias go='hub browse'
+alias ply='sh /home/pankaj/.local/PanoplyJ/panoply.sh'
 alias ydlaudio='youtube-dl -x --embed-thumbnail --audio-format mp3'
 alias ydl='youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best''
-
-alias repo='sudo mknod -m 666 /dev/fuse c 10 229; sshfs jayan@10.57.12.190:/home/jayan/repo ~/Desktop/repo'
-alias urepo='fusermount -u ~/Desktop/repo'
-
-alias wakelab='/usr/bin/wakeonlan 00:11:32:11:15:FC'
-alias netrestart='sudo systemctl restart network-manager'
-
-## nikola
 alias blogcon='conda activate blog'
-alias deploy='nikola github_deploy'
-alias launch='nikola auto'
-
-## conda
 alias con3='export PATH="/home/pankaj/.local/Anaconda3/bin:$PATH"'
 alias con2='export PATH="/home/pankaj/.local/Anaconda2/bin:$PATH"'
-
+alias proxyon='export all_proxy=http://172.16.2.30:8080'
+alias proxyoff='export all_proxy='
 alias remote='jupyter notebook --no-browser --port=8889'
 alias remote2='con2; jupyter notebook --no-browser --port=8889'
 alias remote3='con3; jupyter notebook --no-browser --port=8889'
-
+alias serve='ssh -N -f -L localhost:8888:localhost:8889'
 alias pyget='conda install -c conda-forge'
-alias pipupgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias repo='sudo mknod -m 666 /dev/fuse c 10 229; sshfs jayan@10.57.12.190:/home/jayan/repo ~/Desktop/repo'
+alias urepo='fusermount -u ~/Desktop/repo'
+alias cputemp='sensors | grep Core'
+alias wakelab='/usr/bin/wakeonlan 00:11:32:11:15:FC'
 alias rcon='conda activate rstudio'
+alias deploy='nikola github_deploy'
+alias launch='nikola auto'
+alias netrestart='sudo systemctl restart network-manager'
 
+alias c='clear'
+alias matlab='sudo /home/pankaj/.local/MATLAB/R2016a/bin/matlab -nosplash'
 alias book2='con2; jupyter notebook'
 alias book3='con3; jupyter notebook'
 alias jlab='jupyter-lab'
-alias book='jupyter notebook'
 
 # reset bashrc
 alias ssh='ssh -X'
@@ -57,17 +41,12 @@ alias rc='vi ~/.bashrc'
 alias al='vi ~/.bash_aliases'
 alias lssh='cat ~/.ssh/config'
 
-# Daily aliases
+# Alias quotidiens
 alias ssudo='sudo -sE'
 alias ss='ssudo'
 alias sudo='sudo -E'
 alias get="sudo apt-get install -y"
 alias remove="sudo apt-get remove"
-
-alias ply='sh /home/pankaj/.local/PanoplyJ/panoply.sh'
-alias c='clear'
-alias cputemp='sensors | grep Core'
-alias matlab='sudo /home/pankaj/.local/MATLAB/R2016a/bin/matlab -nosplash'
 
 # Alias some common chmod amounts
 alias mx='chmod a+x'
@@ -93,9 +72,14 @@ alias lr='ll -R'            #  Recursive ls.
 alias la='ll -A'            #  Show hidden files.
 alias tree='tree -Csuh'     #  Nice alternative to 'recursive ls' ...
 
-# grep
+#  grep
 alias grep='grep --color=auto'
 alias pg='ps aux | grep'
+
+#logs
+alias weblogtail="tail -F /var/log/apache2/*"        # watch web server log
+alias logs="tail -F /var/log/*.log /var/log/*/*.log /var/log/syslog"  # watch various current logs
+alias mem='egrep "Mem|Cache|Swap" /proc/meminfo'
 
 ## pass options to free ##
 alias meminfo='free -m -l -t'
@@ -111,8 +95,12 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
  
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+ 
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
 
 # reboot / halt / poweroff
 alias reboot='sudo /sbin/reboot'
@@ -126,11 +114,12 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../..'
 
-alias h='history'                        # command history
+#command history
+alias h='history'
 alias path='echo -e ${PATH//:/\\n}'
 alias j='jobs -l'
 
-# Security aliases
+# Alias de sécurité
 alias rm='rm --preserve-root'
 
 alias duh="du -h "                       # use human-readable sizes
@@ -149,18 +138,35 @@ alias psme='ps -fHu $USER'
 # change default behaviour:
 alias bc="bc -lq "                       # bc always does float calculations
 
-# Show current time
+# Récupérer son IP externe
+alias myip='wget -qO- http://icanhazip.com'
+
+# Afficher l'heure actuelle
 alias now='date +"%T"'
 
-# More readable mount output
+# Sortie de mount plus lisible
 alias mount='mount | column -t'
 
-# Copy the contents of a file to the clipboard
+# Affiche le ports ouverts
+alias ports='netstat -tulanp'
+
+# Show which applications are connecting to the network.
+alias listen="lsof -P -i -n" 
+
+# Mise à jour toute en un
+alias update='sudo apt update && sudo apt dist-upgrade'
+alias safe-update='sudo apt update && sudo apt upgrade'
+
+# Toujours permettre de continuer un téléchargement wget interrompu
+alias wget='wget -c'
+alias dlpage="wget -r -l 1 "             # save page and direct links
+
+
+# Copie le contenu d'un fichier dans le presse-papier
 alias copy='xsel -i --clipboard <'
 
-# logs
-alias weblogtail="tail -F /var/log/apache2/*"        # watch web server log
-alias logs="tail -F /var/log/*.log /var/log/*/*.log /var/log/syslog"  # watch various current logs
-alias mem='egrep "Mem|Cache|Swap" /proc/meminfo'
+# IPython Notebook
+alias book='jupyter notebook'
 
-
+# Met à jour tous les paquets pip
+alias pipupgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
