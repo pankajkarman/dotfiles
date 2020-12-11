@@ -5,6 +5,12 @@ except:
     print('autotime not loaded.')
     
 try:
+    get_ipython().run_line_magic('load_ext', 'watermark')
+    print('autotime loaded.')
+except:
+    print('autotime not loaded.')
+    
+try:
     get_ipython().run_line_magic('load_ext', 'nb_black')
     print('black loaded.')
 except:
@@ -28,13 +34,17 @@ import scipy as sp
 import pandas as pd
 import xarray as xr
 import pickle as pkl
-#import geopandas as gpd
+import geopandas as gpd
 import matplotlib as mpl
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from matplotlib import ticker
 import matplotlib.gridspec as gridspec
+
+
+os.environ["PROJ_LIB"] = os.path.join(os.environ["CONDA_PREFIX"], "share", "proj")
+from mpl_toolkits.basemap import Basemap, addcyclic, cm
 
 
 
