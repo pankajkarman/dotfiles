@@ -2,6 +2,11 @@
     #####    Pankaj    #####
 #################################
 
+function start
+{
+python2 -m 'SimpleHTTPServer' $1
+}
+
 function gadd
 {
 if [ "$#" -lt 1 ] 
