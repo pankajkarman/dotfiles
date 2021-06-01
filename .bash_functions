@@ -60,6 +60,15 @@ mcd() { mkdir -p "$1"; cd "$1";}
 #  make a backup of a file: backup [file] will create [file].bak in the same directory.
 backup() { cp "$1"{,.bak};}
 
+function vu()
+{
+  if [ -f $1 ] ; then
+  	jut -i $1
+  else
+  	jut -u $1  
+  fi
+}
+
 function extract()      # Handy Extract Program
 {
     if [ -f $1 ] ; then

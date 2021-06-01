@@ -3,13 +3,11 @@
 #################################
 
 # my own
-
-alias gfort8="gfortran -fdefault-real-8 -fdefault-double-8"
-alias go='hub browse'
+alias gfort8='gfortran -fdefault-real-8 -fdefault-double-8'
+alias gopen='hub browse'
 alias ply='sh /home/pankaj/.local/PanoplyJ/panoply.sh'
 alias ydlaudio='youtube-dl -x --embed-thumbnail --audio-format mp3'
-alias ydl='youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best''
-alias blogcon='conda activate blog'
+alias ydl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias con3='export PATH="/home/pankaj/.local/Anaconda3/bin:$PATH"'
 alias con2='export PATH="/home/pankaj/.local/Anaconda2/bin:$PATH"'
 alias proxyon='export all_proxy=http://172.16.2.30:8080'
@@ -24,8 +22,6 @@ alias urepo='fusermount -u ~/Desktop/repo'
 alias cputemp='sensors | grep Core'
 alias wakelab='/usr/bin/wakeonlan 00:11:32:11:15:FC'
 alias rcon='conda activate rstudio'
-alias deploy='nikola github_deploy'
-alias launch='nikola auto'
 alias netrestart='sudo systemctl restart network-manager'
 
 alias c='clear'
@@ -33,6 +29,13 @@ alias matlab='sudo /home/pankaj/.local/MATLAB/R2016a/bin/matlab -nosplash'
 alias book2='con2; jupyter notebook'
 alias book3='con3; jupyter notebook'
 alias jlab='jupyter-lab'
+
+# website related
+alias blogcon='conda activate blog'
+alias webpush='git push origin src'
+alias deploy='nikola github_deploy'
+alias launch='nikola auto'
+
 
 # reset bashrc
 alias ssh='ssh -X'

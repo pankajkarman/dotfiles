@@ -150,9 +150,32 @@ shopt -s cdable_vars
 
 #-------------------------------------------------------------------------------
 export PYTHONPATH=/home/pankaj/.local/mypy/:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 export SPACK_ROOT=/home/pankaj/spack/
-export PATH=$SPACK_ROOT/bin:/home/pankaj/.local/bin:$PATH
+export PATH=$SPACK_ROOT/bin:/home/pankaj/.local/bin:/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin:$PATH
+export PATH=/home/pankaj/Public/grib2json/target/grib2json-0.8.0-SNAPSHOT/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pankaj/.local/Anaconda3/pkgs/libgcc-7.2.0-h69d50b8_2/lib
 #-------------------------------------------------------------------------------
-export http_proxy=http://172.16.2.30:8080
-export https_proxy=http://172.16.2.30:8080
-export no_proxy=127.0.0.0/8,::1,10.0.0.0/8
+#export http_proxy=http://172.16.2.30:8080
+#export https_proxy=http://172.16.2.30:8080
+#export no_proxy=127.0.0.0/8,::1,10.0.0.0/8
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/pankaj/.local/Anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/pankaj/.local/Anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pankaj/.local/Anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pankaj/.local/Anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
